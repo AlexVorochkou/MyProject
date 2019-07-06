@@ -27,7 +27,7 @@ class Visit extends Model
         $arrValue['visitsPerLastDay'] = DB::table('visits')
             ->where('visitor', $_SERVER['REMOTE_ADDR'])
             ->whereRaw('created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)')
-            ->get();
+            ->count();
         return $arrValue;
     }
 
